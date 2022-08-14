@@ -1,0 +1,99 @@
+@import "variables";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: $poppins;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: $poppins;
+  //font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  //  monospace;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, section, a {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  height: 100%;
+  .navbar-container {
+    position: absolute;
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 100000;
+    .navbar-header {
+      padding: 25px 0;
+      text-align: center;
+      border-bottom: 1px solid #3331;
+      .title {
+        font-family: $rubik;
+        font-size: 2rem;
+        color: lighten(#333, .6);
+      }
+      .sub-title {
+        .beer {
+          font-size: .8rem;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .navbar-footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 15px;
+      border-top: 1px solid #3331;
+      code {
+        position: relative;
+        text-align: center;
+        font-size: .65rem;
+        color: #33333333;
+        a {
+          text-decoration: none;
+          color: #33333333;
+          transition: color .2s ease-in-out;
+          &:hover {
+            text-decoration: none;
+            color: #333333;
+            transition: color .2s ease-in-out;
+          }
+        }
+        .heart {
+          color: #ff634775;
+          font-size: .5rem;
+          vertical-align: middle;
+        }
+        .github {
+          vertical-align: middle;
+        }
+        .circle {
+          font-size: .4rem;
+          vertical-align: middle;
+          padding: 0 6px;
+        }
+        .version {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .leaflet-container {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+  }
+}
