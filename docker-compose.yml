@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - ./package.json:/app/package.json
+      - /app/node_modules
+    environment:
+      REACT_APP_VERSION: ${REACT_APP_VERSION}
+    networks:
+      - climbing-map
+      - bapmarty
+
+networks:
+  climbing-map:
+    name: cm
+  bapmarty:
+    name: bapmarty

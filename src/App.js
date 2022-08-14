@@ -18,7 +18,7 @@ function App() {
             Made with <span className={"heart"}><FaHeart /></span> by <a href={"https://bapmarty.fr"} target={"_blank"} rel={"noreferrer"}>Bapmarty</a>
             <span className={"circle"}><FaCircle /></span>
             <a href="https://github.com/bapmarty/climbingmap.fr"><span className={"github"}><FaGithub /></span></a>
-            <span className={"circle"}><FaCircle /></span><span className={"version"}>{process.env.REACT_APP_VERSION}</span>
+            <span className={"circle"}><FaCircle /></span><span className={"version"}>v{process.env.REACT_APP_VERSION}</span>
           </code>
         </div>
       </section>
