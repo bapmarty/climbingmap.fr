@@ -1,13 +1,21 @@
-import { MapContainer, TileLayer} from 'react-leaflet';
 import {FaBeer, FaCircle, FaGithub, FaHeart} from 'react-icons/fa';
+import {useState} from "react";
+import ReactMapGL from "react-map-gl";
 
 function App() {
+
+  const [viewport, setViewport] = useState({
+    latitude: 47.0811658,
+    longitude: 2.399125,
+    zoom: 5
+  });
+
   return (
     <section className={"app"}>
       <section className={"navbar-container"}>
         <div className={"navbar-header"}>
           <h1 className={"title"}>Climbing'Map</h1>
-          <h4 className={"sub-title"}>Find your climbing gym <span className={"beer"}><FaBeer /></span></h4>
+          <h5 className={"sub-title"}>Your climbing gym in Europe <span className={"beer"}><FaBeer /></span></h5>
         </div>
         <div>
 
@@ -22,11 +30,18 @@ function App() {
           </code>
         </div>
       </section>
-      <MapContainer center={[47.416, 6.27]} zoom={6.4} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://api.mapbox.com/styles/v1/bapmarty/cl6t1gdsw000g14lfv2jot8av/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYmFwbWFydHkiLCJhIjoiY2w2dDFiMm1tMWpzMTNicW96ZmtuNmhuMCJ9.uuLMM2lBsl95m5x1l03Epg"/>
-      </MapContainer>
+
+      <section className={"map-container"}>
+        <ReactMapGL
+          initialViewState={{...viewport}}
+          style={{width: "100vw", height: "100vh"}}
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN_PUBLIC}
+          onViewportChange={viewport => setViewport(viewport)}
+          mapStyle="mapbox://styles/bapmarty/cl6takgdd000z15npvbgta64u"
+        >
+          maaarrkers
+        </ReactMapGL>
+      </section>
     </section>
   );
 }
