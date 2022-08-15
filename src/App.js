@@ -1,13 +1,14 @@
 import {FaBeer, FaCircle, FaGithub, FaHeart} from 'react-icons/fa';
+import Map, {
+  Marker
+} from "react-map-gl";
 import {useState} from "react";
-import ReactMapGL from "react-map-gl";
 
 function App() {
-
-  const [viewport, setViewport] = useState({
-    latitude: 47.0811658,
-    longitude: 2.399125,
-    zoom: 5
+  const [viewState, setViewState] = useState({
+    latitude: 48.8827730395998,
+    longitude: 2.338991783024761,
+    zoom: 12.5
   });
 
   return (
@@ -32,15 +33,19 @@ function App() {
       </section>
 
       <section className={"map-container"}>
-        <ReactMapGL
-          initialViewState={{...viewport}}
+        <Map
+          initialViewState={{...viewState}}
           style={{width: "100vw", height: "100vh"}}
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN_PUBLIC}
-          onViewportChange={viewport => setViewport(viewport)}
-          mapStyle="mapbox://styles/bapmarty/cl6takgdd000z15npvbgta64u"
-        >
-          maaarrkers
-        </ReactMapGL>
+          onMove={evt => setViewState(evt.viewState)}
+          mapStyle="mapbox://styles/bapmarty/cl6takgdd000z15npvbgta64u">
+          <Marker latitude={48.8827730395998} longitude={2.338991783024761}>
+              <img className={"marker-logo"} src={"/assets/images/vertical-art.png"} alt={"vertical_art_logo"}/>
+          </Marker>
+          <Marker latitude={48.833831117622736} longitude={2.3686782136033813}>
+              <img className={"marker-logo"} src={"/assets/images/vertical-art.png"} alt={"vertical_art_logo"}/>
+          </Marker>
+        </Map>
       </section>
     </section>
   );
