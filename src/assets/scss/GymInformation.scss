@@ -1,0 +1,26 @@
+@import "../../variables";
+
+.gym-information-section {
+  display: flex;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  left: 315px;
+  z-index: 10000;
+  .gym-information {
+    display: flex;
+    align-items: center
+  ;
+    padding: 6px 8px;
+    border-radius: 9px;
+    background: #EEE;
+    border: 1px solid #DDDD;
+    div {
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        height: 64px;
+      }
+    }
+  }
+}
